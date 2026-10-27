@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EyeGuard Intelligence Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark">E</div>
+          <div>
+            <div class="brand-title">EyeGuard</div>
+            <div class="brand-subtitle">Intelligence Lab</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-view="overview">
+            <span class="nav-dot"></span>
+            Overview
+          </button>
+          <button class="nav-item" data-view="assessment">
+            <span class="nav-dot"></span>
+            New Assessment
+          </button>
+          <button class="nav-item" data-view="model-insights">
+            <span class="nav-dot"></span>
+            Model Insights
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <div class="eyebrow">Clinical research platform</div>
+            <h1>Clinical Intelligence Dashboard</h1>
+          </div>
+          <div class="status-pill ok">System Online</div>
+        </header>
+
+        <section id="overview-view" class="view active">
+          <div class="overview-grid">
+            <div class="summary-card accent">
+              <div class="summary-label">Total assessments</div>
+              <div class="summary-value">1,284</div>
+              <div class="summary-meta">+12.4% this month</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">High-risk detections</div>
+              <div class="summary-value">184</div>
+              <div class="summary-meta">7.1% of cohort</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Model confidence</div>
+              <div class="summary-value">89.6%</div>
+              <div class="summary-meta">Threshold 80%</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Active studies</div>
+              <div class="summary-value">06</div>
+              <div class="summary-meta">3 multicentre trials</div>
+            </div>
+          </div>
+
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <h2>Ophthalmic Signal Overview</h2>
+              <button class="ghost-btn">Export Report</button>
+            </div>
+            <div class="orbital-visual">
+              <div class="orbital-ring ring-a"></div>
+              <div class="orbital-ring ring-b"></div>
+              <div class="core-glow"></div>
+            </div>
+            <div class="signal-grid">
+              <div class="signal-item">
+                <span>Engine</span>
+                <strong>Random Forest</strong>
+              </div>
+              <div class="signal-item">
+                <span>Input Features</span>
+                <strong>11</strong>
+              </div>
+              <div class="signal-item">
+                <span>Output Classes</span>
+                <strong>3</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="assessment-view" class="view">
+          <div class="assessment-layout">
+            <div class="clinical-form-panel panel-card">
+              <div class="panel-header compact">
+                <div>
+                  <div class="eyebrow">Clinical profile</div>
+                  <h2>Assessment Inputs</h2>
+                </div>
+              </div>
+
+              <form id="assessment-form" novalidate>
+                <div class="field-grid">
+                  <div class="field-group required">
+                    <label for="age">1. Patient age</label>
+                    <div class="input-wrap">
+                      <input id="age" name="age" type="number" min="0" max="120" step="1" inputmode="numeric" placeholder="Years" />
+                    </div>
+                    <small class="error-msg" data-error-for="age"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="gender_code">2. Gender code</label>
+                    <div class="input-wrap select-wrap">
+                      <select id="gender_code" name="gender_code">
+                        <option value="">Select</option>
+                        <option value="1">1 — Male</option>
+                        <option value="2">2 — Female</option>
+                        <option value="3">3 — Other</option>
+                      </select>
+                    </div>
+                    <small class="error-msg" data-error-for="gender_code"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="dioptre_1">3. Dioptre 1</label>
+                    <div class="input-wrap">
+                      <input id="dioptre_1" name="dioptre_1" type="number" step="0.01" placeholder="D" />
+                    </div>
+                    <small class="error-msg" data-error-for="dioptre_1"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="dioptre_2">4. Dioptre 2</label>
+                    <div class="input-wrap">
+                      <input id="dioptre_2" name="dioptre_2" type="number" step="0.01" placeholder="D" />
+                    </div>
+                    <small class="error-msg" data-error-for="dioptre_2"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="astigmatism">5. Astigmatism</label>
+                    <div class="input-wrap">
+                      <input id="astigmatism" name="astigmatism" type="number" step="0.01" placeholder="D" />
+                    </div>
+                    <small class="error-msg" data-error-for="astigmatism"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="lens_status_code">6. Lens status code</label>
+                    <div class="input-wrap select-wrap">
+                      <select id="lens_status_code" name="lens_status_code">
+                        <option value="">Select</option>
+                        <option value="0">0 — None</option>
+                        <option value="1">1 — Soft</option>
+                        <option value="2">2 — Rigid</option>
+                        <option value="3">3 — Unknown</option>
+                      </select>
+                    </div>
+                    <small class="error-msg" data-error-for="lens_status_code"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="pneumatic_iop">7. Pneumatic IOP</label>
+                    <div class="input-wrap">
+                      <input id="pneumatic_iop" name="pneumatic_iop" type="number" min="0" max="100" step="0.1" placeholder="mmHg" />
+                    </div>
+                    <small class="error-msg" data-error-for="pneumatic_iop"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="perkins_iop">8. Perkins IOP</label>
+                    <div class="input-wrap">
+                      <input id="perkins_iop" name="perkins_iop" type="number" min="0" max="100" step="0.1" placeholder="mmHg" />
+                    </div>
+                    <small class="error-msg" data-error-for="perkins_iop"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="corneal_thickness">9. Corneal thickness</label>
+                    <div class="input-wrap">
+                      <input id="corneal_thickness" name="corneal_thickness" type="number" min="400" max="700" step="0.1" placeholder="µm" />
+                    </div>
+                    <small class="error-msg" data-error-for="corneal_thickness"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="axial_length">10. Axial length</label>
+                    <div class="input-wrap">
+                      <input id="axial_length" name="axial_length" type="number" min="15" max="35" step="0.1" placeholder="mm" />
+                    </div>
+                    <small class="error-msg" data-error-for="axial_length"></small>
+                  </div>
+
+                  <div class="field-group required">
+                    <label for="visual_field_md">11. Visual field MD</label>
+                    <div class="input-wrap">
+                      <input id="visual_field_md" name="visual_field_md" type="number" min="-30" max="5" step="0.1" placeholder="dB" />
+                    </div>
+                    <small class="error-msg" data-error-for="visual_field_md"></small>
+                  </div>
+                </div>
+
+                <div class="threshold-box">
+                  <div class="threshold-header">
+                    <label for="confidence-threshold">Maximum Confidence Threshold</label>
+                    <div class="threshold-value" id="threshold-readout">80%</div>
+                  </div>
+                  <input id="confidence-threshold" type="range" min="50" max="100" step="1" value="80" />
+                </div>
+
+                <div class="action-row">
+                  <button type="submit" class="primary-btn" id="run-assessment">Run Assessment</button>
+                  <button type="button" class="secondary-btn" id="reset-fields">Reset Fields</button>
+                  <button type="button" class="secondary-btn" id="load-sample">Load Sample</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="results-panel panel-card">
+              <div id="result-state" class="result-state waiting">
+                <div class="status-badge awaiting">AWAITING INPUT</div>
+                <div class="orbital-visual mini">
+                  <div class="orbital-ring ring-a"></div>
+                  <div class="orbital-ring ring-b"></div>
+                  <div class="core-glow"></div>
+                </div>
+                <h3>Waiting for your first scan.</h3>
+                <p>Complete the clinical profile to begin an assessment.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="model-insights-view" class="view">
+          <div class="insights-panel panel-card">
+            <div class="panel-header compact">
+              <div>
+                <div class="eyebrow">Model overview</div>
+                <h2>Model Insights</h2>
+              </div>
+            </div>
+            <div class="insight-grid">
+              <div class="insight-box">
+                <span>Model type</span>
+                <strong>Random Forest</strong>
+              </div>
+              <div class="insight-box">
+                <span>Input features</span>
+                <strong>11</strong>
+              </div>
+              <div class="insight-box">
+                <span>Output classes</span>
+                <strong>Normal, Suspect, Glaucoma</strong>
+              </div>
+            </div>
+
+            <div class="insight-copy">
+              <p>This experimental classifier uses a clinical feature set aligned with the assessment form. The maximum confidence threshold is used to gate whether the result is considered acceptable for review. If the highest class confidence remains below the selected threshold, the result is treated as low confidence and a human review is recommended.</p>
+              <p>Evaluation metrics, feature importance, and benchmark statistics are only displayed when they have been measured by the trained model or report pipeline. This tool is for research-only analysis and must not be used as a medical diagnosis.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
